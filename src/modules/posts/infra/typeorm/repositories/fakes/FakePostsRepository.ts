@@ -35,8 +35,11 @@ class FakePostsRepository implements IPostRepository {
   public async findAll(
     take: number,
     page: number,
-  ): Promise<Post[] | ResponseReturn | undefined> {
-    return this.posts;
+  ): Promise<ResponseReturn | undefined> {
+    return {
+      rows: this.posts,
+      totalRegs: [{ total: 1 }],
+    };
   }
 }
 

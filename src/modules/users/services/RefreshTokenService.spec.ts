@@ -1,3 +1,4 @@
+import auth from "@config/auth";
 import AppError from "@shared/errors/AppError";
 
 import FakeTokenRepository from "../infra/typeorm/repositories/fakes/FakeTokenRepository";
@@ -27,7 +28,7 @@ describe("RefreshTokenService.spec", () => {
 
   it("should be able to generate token if token exists", async () => {
     const token = await fakeTokenRepository.create({
-      expiresIn: 3600,
+      expiresIn: new Date().getTime() + 86400,
       userId: "1",
     });
 
@@ -35,7 +36,10 @@ describe("RefreshTokenService.spec", () => {
 
     const tokenCreate = await refreshTokenService.execute({ id: token.id });
 
-    expect(generateToken).toBeCalledWith(token.userId);
+    expect(generateToken).toBeCalledWith(
+      token.userId,
+      auth.jwt.refreshTokenExpires,
+    );
     expect(tokenCreate).toHaveProperty("refreshToken");
   });
 });

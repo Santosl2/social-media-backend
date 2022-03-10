@@ -34,7 +34,7 @@ class PostsRepository implements IPostRepository {
   public async findAll(
     take = 1,
     page: number,
-  ): Promise<Post[] | ResponseReturn | undefined> {
+  ): Promise<ResponseReturn | undefined> {
     const skip = take * (page - 1);
 
     const rows = (await this.repository.query(

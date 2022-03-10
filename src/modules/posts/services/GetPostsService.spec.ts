@@ -12,20 +12,19 @@ describe("GetPostsService", () => {
 
   it("should be able to list all posts", async () => {
     const register = await fakePostsRepository.create({
+      user_id: "1",
       content: "Test",
     });
 
     const register2 = await fakePostsRepository.create({
+      user_id: "1",
       content: "Test 2",
     });
 
     const response = await getPostsServices.execute({ page: 1 });
 
-    expect(response).toEqual(
-      expect.arrayContaining([
-        { id: register.id, content: "Test" },
-        { id: register2.id, content: "Test 2" },
-      ]),
-    );
+    expect(response).toHaveProperty("page");
+    expect(response).toHaveProperty("totalPages");
+    expect(response).toHaveProperty("posts");
   });
 });

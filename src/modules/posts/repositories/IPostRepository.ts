@@ -11,9 +11,6 @@ export interface ResponseReturn {
 
 export default interface IPostRepository {
   findById(id: string): Promise<Post | undefined>;
-  findAll(
-    take: number,
-    page: number,
-  ): Promise<Post[] | ResponseReturn | undefined>;
+  findAll(take: number, page: number): Promise<ResponseReturn | undefined>;
   create(data: ICreatePostDTO): Promise<Post>;
 }
