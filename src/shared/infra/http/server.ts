@@ -2,6 +2,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-console */
 
+import "dotenv/config";
 import "reflect-metadata";
 import { isCelebrateError } from "celebrate";
 import cors from "cors";
