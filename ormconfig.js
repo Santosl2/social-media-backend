@@ -12,6 +12,8 @@ module.exports = {
     migrationsDir: "./src/shared/infra/typeorm/migrations",
   },
   extra: {
-    ssl: process.env.NODE_ENV === "production",
+    ssl: {
+      rejectUnauthorized: false,
+    },
   },
 };
