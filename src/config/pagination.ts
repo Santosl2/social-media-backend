@@ -1,0 +1,1 @@
+export const PAGINATION_TOTAL_ITEMS = 4;
