@@ -13,7 +13,7 @@
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore node_modules src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "jest",
-    "heroku": " NODE_ENV=production yarn typeorm migration:run && yarn run start"
+    "heroku": "NODE_ENV=production yarn typeorm migration:run && yarn run start"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

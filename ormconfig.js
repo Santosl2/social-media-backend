@@ -25,8 +25,8 @@ if (process.env.NODE_ENV !== "production") {
     // "username": "postgres",
     // "password": "docker",
     // "database": "backend_api",
-    entities: ["./src/modules/**/infra/typeorm/entities/*.ts"],
-    migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
+    entities: [`${__dirname}/src/modules/**/infra/typeorm/entities/*.ts`],
+    migrations: [`${__dirname}/src/shared/infra/typeorm/migrations/*.ts`],
     cli: {
       migrationsDir: "./src/shared/infra/typeorm/migrations",
     },
@@ -35,8 +35,8 @@ if (process.env.NODE_ENV !== "production") {
   module.exports = {
     type: "postgres",
     url: process.env.DATABASE_URL,
-    entities: ["./src/modules/**/infra/typeorm/entities/*.ts"],
-    migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
+    entities: [`${__dirname}/dist/modules/**/infra/typeorm/entities/*.js`],
+    migrations: [`${__dirname}/dist/shared/infra/typeorm/migrations/*.js`],
     cli: {
       migrationsDir: "./src/shared/infra/typeorm/migrations",
     },
