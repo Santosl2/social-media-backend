@@ -8,7 +8,7 @@
   "private": false,
   "scripts": {
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
-    "start": "node dist/shared/infra/http/server.js",
+    "start": "cd dist/shared/infra/http && node server.js",
     "start:ts": "ts-node src/shared/infra/http/server.ts",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore node_modules src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
