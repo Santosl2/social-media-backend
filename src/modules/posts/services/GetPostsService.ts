@@ -10,7 +10,7 @@ import IPostRepository from "../repositories/IPostRepository";
 
 interface IRequest {
   page: any;
-  user_id: string;
+  user_id?: string;
 }
 
 interface IResponse {
