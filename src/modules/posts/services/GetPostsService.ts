@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-useless-constructor */
 import { inject, injectable } from "tsyringe";
 
@@ -9,6 +10,7 @@ import IPostRepository from "../repositories/IPostRepository";
 
 interface IRequest {
   page: any;
+  user_id: string;
 }
 
 interface IResponse {
@@ -24,10 +26,11 @@ class GetPostsServices {
     private postsRepository: IPostRepository,
   ) {}
 
-  public async execute({ page }: IRequest): Promise<IResponse> {
+  public async execute({ page, user_id }: IRequest): Promise<IResponse> {
     const posts = await this.postsRepository.findAll(
       PAGINATION_TOTAL_ITEMS,
       page,
+      user_id,
     );
 
     if (!posts) {

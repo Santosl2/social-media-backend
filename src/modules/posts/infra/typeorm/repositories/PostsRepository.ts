@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable default-param-last */
 import { EntityRepository, getRepository, Repository } from "typeorm";
 
@@ -34,11 +35,13 @@ class PostsRepository implements IPostRepository {
   public async findAll(
     take = 1,
     page: number,
+    user_id: string,
   ): Promise<ResponseReturn | undefined> {
     const skip = take * (page - 1);
 
     const rows = (await this.repository.query(
-      `select posts.id, posts.content, posts.created_at, users.name as author FROM posts INNER JOIN users  on users.id = posts.user_id order by created_at desc limit ${take} offset ${skip} `,
+      `select posts.id, posts.content, posts.created_at, users.name as author, (select count(*) from posts_likes where posts_likes.post_id = posts.id AND posts_likes.user_id = '${user_id}') as voted FROM posts INNER JOIN users  on users.id = posts.user_id order by created_at desc limit ${take} offset ${skip} `,
+      // `select posts.id, posts.content, posts.created_at, users.name as author FROM posts INNER JOIN users  on users.id = posts.user_id order by created_at desc limit ${take} offset ${skip} `,
     )) as Post[];
 
     const totalRegs = (await this.repository.query(

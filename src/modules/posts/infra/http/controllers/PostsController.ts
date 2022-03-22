@@ -21,11 +21,14 @@ class PostsController {
   }
 
   public async index(request: Request, response: Response) {
+    const user_id = request.user.id;
+
     const { page } = request.params;
     const postService = container.resolve(GetPostsServices);
 
     const posts = await postService.execute({
       page,
+      user_id,
     });
 
     return response.json(posts);
