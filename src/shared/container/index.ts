@@ -1,7 +1,9 @@
 import "@modules/users/providers";
 import { container } from "tsyringe";
 
+import PostsLikesRepository from "@modules/posts/infra/typeorm/repositories/PostsLikesRepository";
 import PostsRepository from "@modules/posts/infra/typeorm/repositories/PostsRepository";
+import IPostLikeRepository from "@modules/posts/repositories/IPostLikeRepository";
 import IPostRepository from "@modules/posts/repositories/IPostRepository";
 import TokenRepository from "@modules/users/infra/typeorm/repositories/TokenRepository";
 import UsersRepository from "@modules/users/infra/typeorm/repositories/UsersRepository";
@@ -21,4 +23,9 @@ container.registerSingleton<ITokenRepository>(
 container.registerSingleton<IPostRepository>(
   "PostsRepository",
   PostsRepository,
+);
+
+container.registerSingleton<IPostLikeRepository>(
+  "PostsLikesRepository",
+  PostsLikesRepository,
 );

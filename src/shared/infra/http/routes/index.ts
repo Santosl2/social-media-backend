@@ -2,6 +2,7 @@
 import { celebrate, Joi, Segments } from "celebrate";
 import { Router } from "express";
 
+import likesRouter from "@modules/posts/infra/http/routes/likes.routes";
 import postsRouter from "@modules/posts/infra/http/routes/posts.routes";
 import RefreshTokenController from "@modules/users/infra/http/controllers/RefreshTokenController";
 import sessionsRouter from "@modules/users/infra/http/routes/sessions.routes";
@@ -12,6 +13,8 @@ const routes = Router();
 routes.use("/users", usersRouter);
 routes.use("/sessions", sessionsRouter);
 routes.use("/posts", postsRouter);
+routes.use("/posts/likes", likesRouter);
+
 routes.post(
   "/refresh-token",
   celebrate({
