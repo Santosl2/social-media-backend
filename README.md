@@ -19,7 +19,6 @@ A small social network to practice database relationships.
     - Chakra UI
     - Node JS
     - Typeorm
-    - Jest
     - Postgres
     - Express
     - Axios
