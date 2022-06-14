@@ -14,18 +14,11 @@ A small social network to practice database relationships.
 ## Technologies used in this project
 
     - Typescript
-    - React JS
-    - Next JS
-    - Chakra UI
     - Node JS
     - Typeorm
     - Postgres
     - Express
-    - Axios
-    - React-hook-form
-    - Yup
-    - react-query
-    - framer motion
+    - celebrate
 
 ## Installation
 
