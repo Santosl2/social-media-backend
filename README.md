@@ -1,4 +1,4 @@
-# Social Media
+# Social Media Backend
 
 A small social network to practice database relationships.
 
