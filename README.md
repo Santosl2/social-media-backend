@@ -35,7 +35,7 @@ First, you need to have Postgres installed.
 If you have Docker installed, run this command:
 
 ```
- docker run --name NOME_DA_IMAGEM -e POSTGRES_PASSWORD=SENHA_DO_BANCO -d postgres
+ docker run --name IMAGE_NAME -e POSTGRES_PASSWORD=PASSWORD_DB -d postgres
 ```
 
 Now go to the file `ormconfig.json` add change according to your data.
